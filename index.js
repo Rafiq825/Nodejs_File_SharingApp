@@ -3,6 +3,7 @@ const path = require("path");
 const db = require("./config/db");
 const files = require("./routes/files");
 const show = require("./routes/show");
+const download= require('./routes/download')
 
 const app = express();
 const port = 3000;
@@ -18,6 +19,7 @@ app.set("view engine", "ejs");
 // Routes
 app.use("/api/file", files);
 app.use("/file", show);
+app.use('/files/download',download);
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
